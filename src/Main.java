@@ -6,14 +6,13 @@ class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Converter converter = new Converter();
-        StepTracker stepTracker = new StepTracker(scanner,converter);
-
+        StepTracker stepTracker = new StepTracker(scanner, converter);
 
 
         while (true) {
             printMenu();
             int i = scanner.nextInt();
-            switch (i){
+            switch (i) {
                 case 1:
                     stepTracker.addNewNumberStepsPerDay();
                     break;

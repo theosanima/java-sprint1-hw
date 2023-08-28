@@ -6,9 +6,9 @@ public class StepTracker {
     MonthData[] monthToData = new MonthData[12];
     int goalByStepsPerDay = 10000;
 
-    StepTracker(Scanner scan,Converter conv) {
+    StepTracker(Scanner scan, Converter conv) {
         scanner = scan;
-        converter=conv;
+        converter = conv;
         for (int i = 0; i < monthToData.length; i++) {
             monthToData[i] = new MonthData();
         }
@@ -49,18 +49,18 @@ public class StepTracker {
     void printStatistic() {
         System.out.println("Введите число месяца");
         int month = scanner.nextInt();
-        if(month>12 || month <0){
+        if (month > 12 || month < 0) {
             return;
         }
         MonthData monthData = monthToData[month - 1];
         int sumSteps = monthData.sumStepsFromMonth();
         monthData.printDaysAndStepsFromMonth(); // вывод общей статистики по дням
-        System.out.println("Сумма шагов за месяц: "+sumSteps );  // вывод суммы шагов за месяц
-        System.out.println("Максимально шагов за месяц : "+monthData.maxSteps());// вывод максимального пройденного количества шагов за месяц
-        System.out.println("Количество шагов за месяц в среднем  : "+ sumSteps/30);// вывод среднего пройденного количества шагов за месяц
-        System.out.println("Километров пройдено : "+ converter.convertToKm(sumSteps));  // вывод пройденной за месяц дистанции в км
-        System.out.println("Калорий сожжено за месяц : "+ converter.convertStepsToKilocalories(sumSteps)); // вывод количества сожжённых килокалорий за месяц
-        System.out.println("Лучшая серия дней по шагам: "+monthData.bestSeries(goalByStepsPerDay));       // вывод лучшей серии
+        System.out.println("Сумма шагов за месяц: " + sumSteps);  // вывод суммы шагов за месяц
+        System.out.println("Максимально шагов за месяц : " + monthData.maxSteps());// вывод максимального пройденного количества шагов за месяц
+        System.out.println("Количество шагов за месяц в среднем  : " + sumSteps / 30);// вывод среднего пройденного количества шагов за месяц
+        System.out.println("Километров пройдено : " + converter.convertToKm(sumSteps));  // вывод пройденной за месяц дистанции в км
+        System.out.println("Калорий сожжено за месяц : " + converter.convertStepsToKilocalories(sumSteps)); // вывод количества сожжённых килокалорий за месяц
+        System.out.println("Лучшая серия дней по шагам: " + monthData.bestSeries(goalByStepsPerDay));       // вывод лучшей серии
         System.out.println(); //дополнительный перенос строки
     }
 }
